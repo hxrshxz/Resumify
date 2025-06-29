@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: #0f1117; /* Dark background */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+/* NavLink buttons */
+.navbar > a {
+  min-width: 100px;
+  display: flex;
+  margin: 10px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  color: #e5e7eb; /* Light text */
+  text-decoration: none;
+  background-color: #1a1d29; /* Card/surface background */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* On hover */
+.navbar > a:hover {
+  background-color: #3b3f4e; /* Hover surface */
+  color: rgb(59, 130, 246); /* Primary blue accent */
+}

@@ -1,0 +1,170 @@
+/* --- Global Styles & Dark Theme --- */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #111827; /* Dark blue-gray background */
+  color: #d1d5db; /* Light gray text */
+  font-family: "Sora", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 10px;
+}
+
+/* --- Main Card --- */
+.wrapper {
+  width: 100%;
+  max-width: 500px;
+}
+
+.resume-card {
+  background-color: #1f2937; /* Slightly lighter dark card */
+  border: 1px solid #374151; /* Subtle border */
+  border-radius: 16px;
+  margin-top: 50px;
+  overflow: none;
+  padding: 24px 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* --- Card Header --- */
+.resume-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #374151;
+}
+
+.user-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.user-email {
+  font-size: 1rem;
+  color: #9ca3af; /* Muted gray for email */
+}
+
+/* --- Toggle Buttons --- */
+.toggle-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.toggle-btn {
+  background-color: transparent;
+  color: #9ca3af;
+  border: 1px solid #4b5563;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.toggle-btn:hover {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+}
+
+.toggle-btn.active {
+  background-color: #3b82f6; /* Active blue state */
+  border-color: #3b82f6;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+/* --- Resume Section & Content --- */
+.resume-section {
+  padding: 16px 0;
+  border-bottom: 1px solid #374151; /* Separator line */
+}
+
+.resume-section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 12px;
+  cursor: default;
+  position: relative; /* Needed for the underline effect */
+  display: inline-block; /* Makes the underline fit the text */
+}
+
+/* THE ANIMATED UNDERLINE EFFECT on the section title */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0; /* Initially hidden */
+  height: 2px;
+  background-color: #3b82f6;
+  transition: width 0.4s ease-in-out; /* The animation */
+}
+
+/* When the parent section is hovered, animate the underline */
+.resume-section:hover .section-title::after {
+  width: 100%;
+}
+
+
+/* --- THE ACCORDION/SLIDE TRANSITION --- */
+.section-content {
+  max-height: 0; /* Hidden by default */
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-content.active {
+  max-height: 500px; /* Animate to this height when active. Adjust if content is longer. */
+}
+
+/* --- List Styling --- */
+.section-content ul {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 8px;
+}
+
+.section-content li {
+  padding: 8px 0;
+  color: #d1d5db;
+  position: relative;
+  padding-left: 20px;
+  transition: all 0.2s ease;
+}
+
+/* Custom bullet point for a cleaner look */
+.section-content li::before {
+  content: "»"; /* You can use '•', '–', or any other character */
+  color: #3b82f6;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.section-content li:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
