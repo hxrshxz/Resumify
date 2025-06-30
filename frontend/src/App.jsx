@@ -3,12 +3,13 @@ import Navbar from "./Components/Navbar";
 import Resume from "./Components/Resume";
 import { Routes, Route } from "react-router-dom";
 import useCounter from "./hooks/useCounter";
+import Counter from "./Components/Counter";
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<div>Home Page</div>} />
+        <Route path="/" element={<div><Counter/></div>} />
         <Route path="/home" element={<div>Home Page</div>} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/products" element={<div>Products Page</div>} />

@@ -1,15 +1,34 @@
 import React from "react";
-import useCounter from "../hooks/useCounter";
+import {
+  counterSlice,
+  decrement,
+  increment,
+} from "../features/counter/counterSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Counter = () => {
-  const [number, increment, decrement] = useCounter(0);
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
+  const handleIncrement = () => {
+    dispatch(increment());
+  };
+
+  const handleDecrement = () => {
+    dispatch(decrement());
+  };
+
+  const handleReset = () => {
+    dispatch(reset());
+  };
 
   return (
-    <>
-      <h1>Counter: {number}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-    </>
+    <div>
+      <div>Counter: {count}</div>
+      <button onClick={handleIncrement}> increment</button>
+      <button onClick={handleReset}> reset</button>
+      <button onClick={handleDecrement}> decrement</button>
+    </div>
   );
 };
 
